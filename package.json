@@ -1,8 +1,9 @@
 {
-  "name": "share-library",
+  "name": "ng-solcre-framework",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^8.0.3",
-    "@angular/core": "^8.0.3"
+    "@angular/core": "^8.0.3",
+    "solcre-auth-library": "^0.1.4"
   }
 }

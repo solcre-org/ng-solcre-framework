@@ -2,6 +2,7 @@
  * Public API Surface of share-library
  */
 
+
 export * from './lib/share.module';
 export * from './lib/table/table.component';
 export * from './lib/panel/simple-panel/simple-panel.component';
@@ -14,3 +15,4 @@ export * from './lib/table/table-header.model';
 export * from './lib/table/table-row-action.model';
 export * from './lib/table/table-row.model';
 export * from './lib/table/table.model';
+export * from './lib/api/data-base-model.interface';
