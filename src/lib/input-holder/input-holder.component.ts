@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-input-holder',
   templateUrl: './input-holder.component.html',
-  styles: []
+  styles: ['./input-holder.component.css']
 })
 export class InputHolderComponent implements OnInit {
 

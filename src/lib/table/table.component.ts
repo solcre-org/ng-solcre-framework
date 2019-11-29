@@ -9,7 +9,7 @@ import { TableSortEnum } from './table-sort.enum';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styles: []
+  styles: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
 

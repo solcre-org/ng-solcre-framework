@@ -13,7 +13,7 @@
                <a class="bold-link" 
                      (click)="onShowAdd()"
                      >{{ "share.simplePanel.add"  | translate}}</a>
-                  
+               
                <app-table 
                *ngIf="tableModel" 
                [tableModel]="tableModel"
@@ -22,7 +22,6 @@
                (onSort)="onSort($event)"
                (onExtraActionClick)="onExtraActionClick($event)">
             </app-table>
-            <!-- (onAddRow)="onAddRow($event)"  -->
 
             <!-- PLACEHOLDER -->
 				<app-placeholder 

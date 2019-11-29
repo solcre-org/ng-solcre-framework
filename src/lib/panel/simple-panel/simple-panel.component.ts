@@ -12,14 +12,14 @@ import { ApiHalPagerModel } from '../../api/api-hal-pager.model';
 import { FormGroup } from '@angular/forms';
 import { DataBaseModelInterface } from '../../api/data-base-model.interface';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'ng-solcre-auth';
 import { UiEventsService } from '../../ui-events.service';
 import { TableHeaderModel } from '../../table/table-header.model';
-import { AuthService } from 'solcre-auth-library';
 
 @Component({
   selector: 'app-simple-panel',
   templateUrl: './simple-panel.component.html',
-  styles: [],
+  styles: ['./simple-panel.component.css'],
   providers: [DialogService]
 })
 export class SimplePanelComponent implements OnInit {
@@ -59,13 +59,13 @@ export class SimplePanelComponent implements OnInit {
   dialogActive: boolean;
 
   constructor(
-    // private simplePanelService: SimplePanelService,
     private apiService: ApiService,
     private dialogService: DialogService,
     private loaderService: LoaderService,
     private translateService: TranslateService,
     private authService: AuthService,
     private uiEvents: UiEventsService,
+
   ) { }
 
   ngOnInit() {
@@ -203,17 +203,18 @@ export class SimplePanelComponent implements OnInit {
       let json: any = rowToAdd.toJSON();
       this.apiService.createObj(this.domainCode + this.simplePanelOptions.URI, json).subscribe((response: ApiResponseModel) => {
         this.primaryFormLoading = false;
-        this.uiEvents.internalModalStateChange.emit(false);
         this.showForm = false;
         if (response.hasSingleResponse()) {
           let row: TableRowModel = this.onParseRow(response.data);
           this.tableModel.addRow(row);
         }
+        this.uiEvents.internalModalStateChange.emit(false);
         this.loaderService.done();
       },
         (error: HttpErrorResponse) => {
           this.dialogService.open(new DialogModel(error.error.detail));
           this.loaderService.done();
+          this.primaryFormLoading = false;
         });
     }
     this.primaryForm.reset();
@@ -246,7 +247,7 @@ export class SimplePanelComponent implements OnInit {
           let row: TableRowModel = this.tableModel.findRow(model.id);
           if (row instanceof TableRowModel) {
             this.showForm = false;
-            this.uiEvents.internalModalStateChange.emit(false);
+
             //update the data and model 
             row.data = newRow.data;
             row.model = newRow.model;
@@ -273,31 +274,24 @@ export class SimplePanelComponent implements OnInit {
       this.translateService.get('share.dialog.message').subscribe(response => {
         message = response;
       });
+
+      let dialog = 
       //row.data[1] is the name 
       this.dialogService.open(new DialogModel(message + row.data[1] + "?", () => {
-        this.loaderService.start();
+        // this.loaderService.start();
         //Delete the usergroup
         this.apiService.deleteObj(this.domainCode + this.simplePanelOptions.URI, row.id).subscribe((response: any) => {
-          this.tableModel.removeRow(row.id);
-          this.showForm = false;
-          this.dialogLoading = false;
-          this.dialogActive = false;
-
-          if (!this.showForm) {
-            this.loaderService.done();
-          }
-
+            this.tableModel.removeRow(row.id);
+            this.dialogService.close();
+            this.loaderService.done();   
         },
           (error: HttpErrorResponse) => {
-            this.dialogLoading = false;
-            this.dialogActive = false;
-            this.dialogService.open(new DialogModel(error.error.detail));
+            this.dialogService.close(); //close the old dialog
+            this.dialogService.open(new DialogModel(error.error.detail)); //open the error dialog
             this.loaderService.done();
           }
         )
-
       }));
-
     }
   }
 

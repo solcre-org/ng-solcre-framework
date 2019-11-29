@@ -5,7 +5,7 @@ import { ApiHalPagerModel } from '../api-hal-pager.model';
 @Component({
 	selector: 'app-pager',
 	templateUrl: './pager.component.html',
-	styles: []
+	styles: ['./pager.component.scss']
 })
 export class PagerComponent implements OnInit {
 	//Inputs

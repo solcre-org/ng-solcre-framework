@@ -14,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PlaceholderComponent } from './panel/placeholder/placeholder.component';
-// import { ShareLibraryComponent } from './share-library.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +26,6 @@ import { PlaceholderComponent } from './panel/placeholder/placeholder.component'
         LoaderComponent,
         DialogComponent,
         PlaceholderComponent,
-        // ShareLibraryComponent
     ],
     imports: [
         TranslateModule,
@@ -44,8 +42,7 @@ import { PlaceholderComponent } from './panel/placeholder/placeholder.component'
         InputHolderComponent,
         LoaderComponent,
         DialogComponent,
-        PlaceholderComponent,
-        // ShareLibraryComponent
+        PlaceholderComponent
     ],
     providers: [
         ApiService,

@@ -4,8 +4,8 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 import { ApiResponseModel } from "./api-response.model";
-import { AuthService } from 'solcre-auth-library';
-import { environment } from '../environment';
+import { AuthService } from "ng-solcre-auth";
+import { environment } from "../environment";
 // import { FormUtility } from '../utilities/form.utility';
 
 @Injectable({

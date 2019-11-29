@@ -6,7 +6,7 @@ import { DialogService } from './dialog.service';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
-  styles: []
+  styles: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
 	//Models
@@ -44,6 +44,10 @@ export class DialogComponent implements OnInit {
 		}
 		if(this.model instanceof DialogModel){
 			this.model.doConfirm();
+			this.dialogService.onClose.subscribe(() => {
+				this.isActive = false;
+				this.loading = false;
+			})
 		}
 	}
 

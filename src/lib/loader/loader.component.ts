@@ -4,7 +4,7 @@ import { LoaderService } from './loader.service';
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
-  styles: []
+  styles: ['./loader.component.css']
 })
 export class LoaderComponent implements OnInit {
 

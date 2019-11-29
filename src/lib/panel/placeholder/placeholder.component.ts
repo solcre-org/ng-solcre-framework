@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-placeholder',
   templateUrl: './placeholder.component.html',
-  styles: [],
+  styles: ['./placeholder.component.css'],
   host: {'class': 'component'}
 })
 export class PlaceholderComponent implements OnInit {
