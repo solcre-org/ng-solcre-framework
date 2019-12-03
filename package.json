@@ -1,11 +1,20 @@
 {
   "name": "ng-solcre-framework",
-  "version": "0.0.4",
+  "version": "0.0.8",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build-lib": "ng build ng-solcre-framework && npm run copy-lib-assets",
+    "copy-lib-assets": "cpx \"projects/ng-solcre-framework/assets\" \"dist/ng-solcre-framework\"",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
   "peerDependencies": {
     "@angular/common": "^8.0.3",
     "@angular/core": "^8.0.3"
   },
   "dependencies": {
-    "ng-solcre-auth": "0.0.1"
+    "ng-solcre-auth": "^0.0.3"
   }
 }

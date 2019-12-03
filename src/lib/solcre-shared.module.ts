@@ -10,10 +10,12 @@ import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './loader/loader.service';
 import { ModalComponent } from './panel/modal/modal.component';
 import { InputHolderComponent } from './input-holder/input-holder.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PlaceholderComponent } from './panel/placeholder/placeholder.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
     declarations: [
@@ -28,7 +30,13 @@ import { PlaceholderComponent } from './panel/placeholder/placeholder.component'
         PlaceholderComponent,
     ],
     imports: [
-        TranslateModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
         ReactiveFormsModule,
         FormsModule,
         CommonModule
@@ -51,6 +59,10 @@ import { PlaceholderComponent } from './panel/placeholder/placeholder.component'
     ]
 
 })
-export class ShareModule {
+export class SolcreSharedModule {
 
+}
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
 }

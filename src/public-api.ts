@@ -3,7 +3,7 @@
  */
 
 
-export * from './lib/share.module';
+export * from './lib/solcre-shared.module';
 export * from './lib/table/table.component';
 export * from './lib/panel/simple-panel/simple-panel.component';
 export * from './lib/loader/loader.service';

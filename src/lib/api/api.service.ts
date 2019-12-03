@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 import { ApiResponseModel } from "./api-response.model";
-import { AuthService } from "ng-solcre-auth";
+import { SolcreAuthService } from "ng-solcre-auth";
 import { environment } from "../environment";
 // import { FormUtility } from '../utilities/form.utility';
 
@@ -16,7 +16,7 @@ export class ApiService {
 
 	//Service constructor
 	constructor(
-		private authService: AuthService,
+		private authService: SolcreAuthService,
 		private httpClient: HttpClient) { }
 
 

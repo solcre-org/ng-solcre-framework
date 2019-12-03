@@ -12,7 +12,7 @@ import { ApiHalPagerModel } from '../../api/api-hal-pager.model';
 import { FormGroup } from '@angular/forms';
 import { DataBaseModelInterface } from '../../api/data-base-model.interface';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthService } from 'ng-solcre-auth';
+import { SolcreAuthService } from 'ng-solcre-auth';
 import { UiEventsService } from '../../ui-events.service';
 import { TableHeaderModel } from '../../table/table-header.model';
 
@@ -63,7 +63,7 @@ export class SimplePanelComponent implements OnInit {
     private dialogService: DialogService,
     private loaderService: LoaderService,
     private translateService: TranslateService,
-    private authService: AuthService,
+    private authService: SolcreAuthService,
     private uiEvents: UiEventsService,
 
   ) { }
