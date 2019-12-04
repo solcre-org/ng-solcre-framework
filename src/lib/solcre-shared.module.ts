@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { PlaceholderComponent } from './panel/placeholder/placeholder.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SolcreAuthModule } from 'ng-solcre-auth';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         }),
         ReactiveFormsModule,
         FormsModule,
-        CommonModule
+        CommonModule,
+        SolcreAuthModule
     ],
     exports: [
         FilterPipe,

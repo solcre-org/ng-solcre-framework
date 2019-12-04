@@ -1,24 +1,22 @@
-# ShareLibrary
+# Ng Solcre Framework
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+## Versions 
+    npm: 6.9.0
+    node: 10.16.3
+    
+## Install
+Run `npm install ng-solcre-framework`.
+Add the environments folder.
+Import the modules: 
+`import { SolcreSharedModule } from 'ng-solcre-framework';`.
+`import { SolcreAuthModule } from 'ng-solcre-auth';`.
+`ReactiveFormsModule`.
 
-## Code scaffolding
+## Clone repo
+Clone into ./projects
 
-Run `ng generate component component-name --project share-library` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project share-library`.
-> Note: Don't forget to add `--project share-library` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build share-library` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build share-library`, go to the dist folder `cd dist/share-library` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test share-library` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Update library: 
+in package.json update the number version and run: 
+ `ng build ng-solcre-framework`.
+ `cd dist/ng-solcre-framework`.
+ `npm publish`.
